@@ -4,6 +4,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 export const Navbar = (props: {}) => {
+  const NavLinkStyle =
+    "items-center gap-1 font-medium text-textDark hover:text-textYellow cursor-pointer duration-300 text-xl nav-link";
   return (
     <div
       className="
@@ -20,8 +22,8 @@ export const Navbar = (props: {}) => {
       <div
         className="
           max-w-container 
-          hfull 
-          mx-auto 
+          h-full 
+          mx-auto
           py-10
           font-titleFont 
           flex 
@@ -33,22 +35,11 @@ export const Navbar = (props: {}) => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <Image src={logo} className="w-14" alt="logo"></Image>
+          <Image src={logo} className="w-20" alt="logo"></Image>
         </motion.div>
         <div className="hidden mdl:inline-flex items-center gap-7">
-          <ul className="flex text-[13px] gap-7">
-            <Link
-              href="#home"
-              className="
-                items-center 
-                gap-1 
-                font-medium 
-                text-textDark 
-                hover:text-textGreen 
-                cursor-pointer 
-                duration-300 
-                nav-link"
-            >
+          <ul className="flex  gap-7">
+            <Link href="#home" className={NavLinkStyle}>
               <motion.li
                 initial={{ y: -10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -57,18 +48,7 @@ export const Navbar = (props: {}) => {
                 Home
               </motion.li>
             </Link>
-            <Link
-              className="
-                items-center 
-                gap-1 
-                font-medium 
-                text-textDark 
-                hover:text-textGreen 
-                cursor-pointer 
-                duration-300 
-                nav-link"
-              href="#about"
-            >
+            <Link className={NavLinkStyle} href="#about">
               <motion.li
                 initial={{ y: -10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -77,18 +57,7 @@ export const Navbar = (props: {}) => {
                 About
               </motion.li>
             </Link>
-            <Link
-              className="
-                items-center 
-                gap-1 
-                font-medium 
-                text-textDark 
-                hover:text-textGreen 
-                cursor-pointer 
-                duration-300 
-                nav-link"
-              href="#experience"
-            >
+            <Link className={NavLinkStyle} href="#experience">
               <motion.li
                 initial={{ y: -10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -97,18 +66,7 @@ export const Navbar = (props: {}) => {
                 Experience
               </motion.li>
             </Link>
-            <Link
-              className="
-                items-center 
-                gap-1 
-                font-medium 
-                text-textDark 
-                hover:text-textGreen 
-                cursor-pointer 
-                duration-300 
-                nav-link"
-              href="#project"
-            >
+            <Link className={NavLinkStyle} href="#project">
               <motion.li
                 initial={{ y: -10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -117,18 +75,7 @@ export const Navbar = (props: {}) => {
                 Project
               </motion.li>
             </Link>
-            <Link
-              className="
-                items-center 
-                gap-1 
-                font-medium 
-                text-textDark 
-                hover:text-textGreen 
-                cursor-pointer 
-                duration-300 
-                nav-link"
-              href="#ceontact"
-            >
+            <Link className={NavLinkStyle} href="#ceontact">
               <motion.li
                 initial={{ y: -10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -147,8 +94,8 @@ export const Navbar = (props: {}) => {
             px-4 
             py-2 
             rounded-md 
-            text-textGreen 
-            text-[13px] 
+            text-textYellow 
+            text-xl
             border 
             border-textGreen 
             hover:bg-hoverColor 

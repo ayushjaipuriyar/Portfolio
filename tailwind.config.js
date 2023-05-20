@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+/* @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -34,8 +34,9 @@ module.exports = {
         bodyColor: "#6096B4",
         textGreen: "#93BFCF",
         textLight: "#BDCDD6",
-        textYello: "#EEE9DA",
+        textYellow: "#EEE9DA",
         hoverColor: "rgba(100,255,218,0.1)",
+        textDark: "#212A3E",
       },
     },
   },
