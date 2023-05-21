@@ -32,7 +32,7 @@ const Banner = () => {
         transition={{ duration: 0.5, delay: 0.8 }}
         className="text-base md:max-w-[650px] text-textDark font-medium"
       >
-        I am aassionate software developer specializing in full-stack web
+        I am passionate software developer specializing in full-stack web
         development with the MERN stack. My expertise lies in languages like
         C/C++, Python, and JavaScript, and I have successfully built websites
         and developed a movie recommendation system.

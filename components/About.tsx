@@ -17,19 +17,47 @@ const About = () => {
     >
       <SectionTitle title="About Me" />
       <div className="flex flex-col lgl:flex-row gap-16">
-        <div className="w-full lgl:w-2/3 text-base text-textDark font-medium flex flex-col gap-4">
-          <p>SOME INTRODUCTION</p>
+        <div className="w-full text-base text-textDark font-medium flex flex-col gap-4">
+          <p>
+            As a full-stack developer with experience in building robust and
+            secure web applications, I have gained expertise in the MERN stack,
+            Express.js, MongoDB, and React.js. During my internship at Gail
+            Training Institute, I built a sleek and minimalistic website,
+            improving user experience by reducing the website loading time by
+            30%. As a mentee at Microsoft Engage 2022, I developed a
+            recommendation system using Python, Flask, and ReactJS to predict
+            movies based on users&apos; past ratings. Furthermore, I designed an
+            interactive web page to showcase the recommended movies, with
+            endpoints designated for receiving and transmitting requests. I also
+            published a Bash script on the Arch User Repository to modify
+            performance modes and battery charging options on the Lenovo Ideapad
+            Slim 5 AMD laptop.
+          </p>
           <p>Here are a few technologies that I have worked on: </p>
-          <ul className="max-w-[450px] text-sm font-titleFont grid grid-cols-2 gap-2 mt-6">
+          <ul className="max-w-[450px] text-sm font-titleFont grid grid-cols-3 gap-2 mt-6">
+            <li className="flex items=center gap-2">{bullet}C/C++</li>
+            <li className="flex items=center gap-2">{bullet}Python</li>
+            <li className="flex items=center gap-2">{bullet}Java</li>
+            <li className="flex items=center gap-2">{bullet}HTML</li>
+            <li className="flex items=center gap-2">{bullet}CSS</li>
             <li className="flex items=center gap-2">{bullet}Javascript</li>
-            <li className="flex items=center gap-2">{bullet}Javascript</li>
-            <li className="flex items=center gap-2">{bullet}Javascript</li>
-            <li className="flex items=center gap-2">{bullet}Javascript</li>
-            <li className="flex items=center gap-2">{bullet}Javascript</li>
-            <li className="flex items=center gap-2">{bullet}Javascript</li>
+            <li className="flex items=center gap-2">{bullet}ReactJS</li>
+            <li className="flex items=center gap-2">{bullet}MongoDb</li>
+            <li className="flex items=center gap-2">{bullet}Nextjs</li>
+            <li className="flex items=center gap-2">{bullet}Express.js</li>
+            <li className="flex items=center gap-2">{bullet}Node.js</li>
+            <li className="flex items=center gap-2">{bullet}SQL</li>
+            <li className="flex items=center gap-2">{bullet}Flask</li>
+            <li className="flex items=center gap-2">{bullet}pandas</li>
+            <li className="flex items=center gap-2">{bullet}NumPy</li>
+            <li className="flex items=center gap-2">{bullet}Matplotlib</li>
+            <li className="flex items=center gap-2">{bullet}Scikit-learn</li>
+            <li className="flex items=center gap-2">{bullet}Git</li>
+            <li className="flex items=center gap-2">{bullet}Docker</li>
+            <li className="flex items=center gap-2">{bullet}Google Cloud</li>
           </ul>
         </div>
-        <div className="w-full lgl:w-1/3 h-80 relative group">
+        <div className="w-full lgl:w-2/3 h-80 relative group">
           <div className="absolute w-full h-80 -left-6 -top-6 rounded-3xl">
             <div className="w-full h-full relative z-20 flex pl-6 lgl:pl-0">
               <Image
