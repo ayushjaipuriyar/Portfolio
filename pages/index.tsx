@@ -1,11 +1,15 @@
 import LeftSide from "@/components/LeftSide";
 import { Navbar } from "@/components/Navbar";
 import RightSide from "@/components/RightSide";
-import Banner from "@/components/Banner.tsx";
+import Banner from "@/components/Banner";
 import Head from "next/head";
 import { motion } from "framer-motion";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
+import Projects from "@/components/Projects";
+import Archive from "@/components/Archive";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -15,7 +19,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <link rel="icon" href="/logo.ico" />
       </Head>
-      <main className="w-full h-screen font-bodyFont bg-bodyColor text-textLight overflow-x-hidden overflow-y-scroll">
+      <main className="w-full h-screen font-bodyFont bg-bodyColor text-textLight overflow-x-hidden overflow-y-scroll scrollbar scrollbar-track-textDark/200 scrollbar-thumb-textDark/60">
         <Navbar />
         <div className="w-full h-[88hvh] xl:flex items-center gap-20 justify-between">
           <motion.div
@@ -29,7 +33,11 @@ export default function Home() {
           <motion.div className="h-[88vh] mx-auto p-4">
             <Banner />
             <About />
-            <Experience/>
+            <Experience />
+            <Projects />
+            <Archive />
+            <Contact />
+            <Footer text="og" />
           </motion.div>
           <motion.div
             initial={{ opacity: 0 }}
