@@ -5,7 +5,7 @@ import fetch from "node-fetch";
 
 // const pipeline = promisify(stream.pipeline);
 const url =
-  "https://github.com/ayushjaipuriyar/resume/releases/latest/download/resume.pdf";
+  "https://github.com/ayushjaipuriyar/resume/releases/latest/download/Ayush_Jaipuriyar_resume.pdf";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
