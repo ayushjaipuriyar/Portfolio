@@ -5,8 +5,9 @@ const nextConfig = {
 
 module.exports = nextConfig;
 module.exports = {
-  env:{
-    GITHUB_ACCESS_TOKEN:'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'
+  env: {
+    GITHUB_ACCESS_TOKEN:
+      "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",
   },
   images: {
     remotePatterns: [
