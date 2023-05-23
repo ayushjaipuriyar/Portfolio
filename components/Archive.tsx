@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Octokit } from "octokit";
 
 const Archive = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<any>([]);
   const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const Archive = () => {
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-10 lg:px-10">
-        {data.map((item, index) => {
+        {data.map((item: any, index: number) => {
           if (!showMore && index >= 3) return null; // Skip rendering if not in showMore mode and index is beyond the first three
           if (item.archived) return null; // Skip rendering if item is archived
           return (
@@ -56,7 +56,6 @@ const Archive = () => {
               <Card
                 name={item.name}
                 description={item.description}
-                langs={item.language}
                 link={item.html_url}
               />
             </motion.div>
