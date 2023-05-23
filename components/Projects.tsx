@@ -1,13 +1,56 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SectionTitle from "./SectionTitle";
 import Image from "next/image";
 import { RxOpenInNewWindow } from "react-icons/rx";
 import { TbBrandGithub } from "react-icons/tb";
+import { graphql, GraphQlQueryResponseData } from "@octokit/graphql";
 const Projects = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const graphqlWithAuth = graphql.defaults({
+        headers: {
+          authorization: `bearer ${process.env.GITHUB_ACCESS_TOKEN}`,
+        },
+      });
+      const query = `
+          {
+            user(login: "ayushjaipuriyar") {
+              pinnedItems(first: 10) {
+                edges {
+                  node {
+                    ... on Repository {
+                      name
+                      description
+                      languages(first: 20) {
+                        edges {
+                          node {
+                            name
+                          }
+                        }
+                      }
+                      url
+                    }
+                  }
+                }
+              }
+            }
+          }
+      `;
+      try {
+        const { data } = await graphqlWithAuth();
+        setData(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
+  console.log(data);
   return (
     <section
       id="products"
-      className="max-w-containerSmall mx-auto lgl:px-20 py-24"
+      className="max-w-containerSmall mx-auto lg:px-20 py-24"
     >
       <SectionTitle title="Projects" />
       <div>
@@ -22,7 +65,7 @@ const Projects = () => {
                 <Image className="w-full h-full object-contain" src="" alt="" />
               </div>
             </a>
-            <div className="w-full xl:w-1/2 flex flex-col gap-6 lgl:justify-between items-end text-right xl:-ml-16 z-10">
+            <div className="w-full xl:w-1/2 flex flex-col gap-6 lg:justify-between items-end text-right xl:-ml-16 z-10">
               <p className="font-titleFont text-textGreen text-sm tracking-wide">
                 Featured Projects
               </p>
@@ -77,7 +120,7 @@ const Projects = () => {
                 <Image className="w-full h-full object-contain" src="" alt="" />
               </div>
             </a>
-            <div className="w-full xl:w-1/2 flex flex-col gap-6 lgl:justify-between items-end text-right z-10">
+            <div className="w-full xl:w-1/2 flex flex-col gap-6 lg:justify-between items-end text-right z-10">
               <p className="font-titleFont text-textGreen text-sm tracking-wide">
                 Featured Projects
               </p>

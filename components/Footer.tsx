@@ -19,7 +19,7 @@ const Footer = ({ text }: Props) => {
   return (
     <div
       className={`${text === "nav" ? "gap-6 " : "hidden"
-        } flex mdl:inline-flex xl:hidden items-center justify-center py-6 w-full gap-4`}
+        } flex md:inline-flex xl:hidden items-center justify-center py-6 w-full gap-4`}
     >
       {icons(<BsGithub />, "https://github.com/ayushjaipuriyar")}
       {icons(<BsLinkedin />, "https://github.com/ayushjaipuriyar")}

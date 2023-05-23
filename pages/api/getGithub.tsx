@@ -13,9 +13,12 @@ export default async function handler(
       },
     });
 
-    const response = await octokit.request("GET /users/{username}/repos", {
-      username: "ayushjaipuriyar",
-    });
+    const response = await octokit.request(
+      "GET /users/{username}/repos?per_page=100&sort=updated&direction=desc",
+      {
+        username: "ayushjaipuriyar",
+      }
+    );
 
     res.status(200).json(response.data);
   } catch (error) {

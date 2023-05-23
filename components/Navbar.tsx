@@ -24,7 +24,7 @@ export const Navbar = () => {
     e.currentTarget.classList.add("active");
   };
   const NavLinkStyle =
-    "items-center gap-1 font-medium text-textLight hover:text-textYellow cursor-pointer duration-300 text-xl nav-link";
+    "items-center gap-1 font-medium text-textLight hover:text-[#eee] cursor-pointer duration-300 text-xl nav-link";
   return (
     <div
       className="
@@ -34,7 +34,7 @@ export const Navbar = () => {
         lg:h-[12vh] 
         sticky 
         top-0 
-        z-50 
+        z-50
         bg-bodyColor 
         px-4"
     >
@@ -56,7 +56,7 @@ export const Navbar = () => {
         >
           <Image src={logo} className="w-20" alt="logo"></Image>
         </motion.div>
-        <div className="hidden mdl:inline-flex items-center gap-7">
+        <div className="hidden md:inline-flex items-center gap-7">
           <ul className="flex  gap-7">
             <Link href="#home" className={NavLinkStyle} onClick={handleScroll}>
               <motion.li
@@ -138,7 +138,7 @@ export const Navbar = () => {
         </div>
         <div
           onClick={() => setshowMenu(!showMenu)}
-          className="w-6 h-5 flex flex-col justify-between items-center mdl:hidden text-4xl text-textGreen cursor-pointer overflow-hidden group"
+          className="w-6 h-5 flex flex-col justify-between items-center md:hidden text-4xl text-textGreen cursor-pointer overflow-hidden group"
         >
           <span className="w-full h-[2px] bg-textGreen inline-flex transform group-hover:translate-x-2 transition-all ease-in-out duration-300"></span>
           <span className="w-full h-[2px] bg-textGreen inline-flex transform translate-x-3 group-hover:translate-x-0 transition-all ease-in-out duration-300"></span>
@@ -147,7 +147,7 @@ export const Navbar = () => {
         {showMenu && (
           <div
             ref={(node) => (ref.current = node)}
-            className="absolute mdl:hidden top-0 right-0 w-full h-screen bg-black bg-opacity-50 flex flex-col items-end"
+            className="absolute md:hidden top-0 right-0 w-full h-screen bg-black bg-opacity-50 flex flex-col items-end"
           >
             <motion.div
               initial={{ x: 20, opacity: 0 }}

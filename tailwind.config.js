@@ -13,16 +13,16 @@ module.exports = {
       containerxs: "768px",
     },
     extend: {
-      screens: {
-        xs: "320px",
-        sm: "375px",
-        sml: "500px",
-        md: "667px",
-        mdl: "768px",
-        lg: "960px",
-        lgl: "1024px",
-        xl: "1280px",
-      },
+      // screens: {
+      //   xs: "320px",
+      //   sm: "375px",
+      //   sml: "500px",
+      //   md: "667px",
+      //   mdl: "768px",
+      //   lg: "960px",
+      //   lgl: "1024px",
+      //   xl: "1280px",
+      // },
       fontFamily: {
         bodyFont: ["Poppins", "sans-serif"],
         titleFont: ["Barlow", "Inter", "sans-serif"],
@@ -37,6 +37,7 @@ module.exports = {
         textYellow: "#EEE9DA",
         hoverColor: "rgba(100,255,218,0.1)",
         textDark: "#212A3E",
+        bullet:"#FAD6A5"
       },
     },
   },
