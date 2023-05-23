@@ -38,34 +38,35 @@ const Projects = () => {
         },
       });
       const query = `
-         {
-  user(login: "ayushjaipuriyar") {
-    pinnedItems(first: 10) {
-      edges {
-        node {
-          ... on Repository {
-            name
-            description
-            languages(first: 20) {
-              nodes {
-                name
-              }
-            }
-            url
-            repositoryTopics(first: 10) {
-              nodes {
-                topic {
-                  name
+        {
+          user(login: "ayushjaipuriyar") {
+            pinnedItems(first: 10) {
+              edges {
+                node {
+                  ... on Repository {
+                    name
+                    description
+                    languages(first: 20) {
+                      nodes {
+                        name
+                      }
+                    }
+                    url
+                    repositoryTopics(first: 10) {
+                      nodes {
+                        topic {
+                          name
+                        }
+                      }
+                    }
+                    homepageUrl
+                  }
                 }
               }
             }
-            homepageUrl
           }
         }
-      }
-    }
-  }
-}      `;
+      `;
       try {
         const response = await graphqlWithAuth<GraphQLResponse>(query);
         const edgesExtracted: UserPinnedItem[] =

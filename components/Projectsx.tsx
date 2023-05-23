@@ -48,10 +48,7 @@ const Projectsx = ({
               ))}
           </ul>
           <ul className="text-xs md:text-sm font-titleFont tracking-wide flex gpa-2 md:gap-5 justify-between text-textDark">
-            {tags &&
-              tags.map((tag, index) => (
-                <li key={index}>{tag.name}</li>
-              ))}
+            {tags && tags.map((tag, index) => <li key={index}>{tag.name}</li>)}
           </ul>
           <div className="text-2xl flex gap-4">
             <a
