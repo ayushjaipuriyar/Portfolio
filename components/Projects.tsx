@@ -95,6 +95,7 @@ const Projects = () => {
               website={item.node.homepageUrl}
               languages={item.node.languages.nodes}
               tags={item.node.repositoryTopics.nodes}
+              index={index}
             />
           ))}
       </div>

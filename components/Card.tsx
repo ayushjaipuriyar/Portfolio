@@ -1,47 +1,57 @@
 import React, { useState, useEffect } from "react";
 import { RxOpenInNewWindow } from "react-icons/rx";
 import { FaRegFolder } from "react-icons/fa";
+import { CgWebsite } from "react-icons/cg";
 import { Octokit } from "octokit";
+interface language {
+  name: string;
+}
 
+interface release {
+  url: string;
+}
+
+interface topicP {
+  topic: {
+    name: string;
+  };
+}
 interface Props {
   name: String;
   description: String;
-  link: string;
+  url: string;
+  languages: language[];
+  repositoryTopics: topicP[];
+  releases: release[];
+  deployedlink: string;
 }
-const Card = ({ name, description, link }: Props) => {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const octokit = new Octokit({
-        headers: {
-          "User-Agent": "MyApp",
-          Accept: "application/vnd.github.v3+json",
-        },
-      });
-
-      try {
-        const response = await octokit.request(
-          `GET /repos/{username}/${name}/languages`,
-          {
-            username: "ayushjaipuriyar",
-          }
-        );
-        setData(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  const keys = Object.keys(data);
+const Card = ({
+  name,
+  description,
+  url,
+  languages,
+  repositoryTopics,
+  releases,
+  deployedlink,
+}: Props) => {
+  const iconStyle = "text-4xl hover:text-textGreen";
   return (
-    <a href={link} target="_blank">
-      <div className="w-full h-80 rounded-lg bg-[#112240] p-7 flex flex-col justify-center gap-6 hover:-translate-y-2 transitions-transform duration-300 group">
+    <a href={url} target="_blank">
+      <div className="w-full rounded-lg bg-[#112240] p-7 flex flex-col justify-center gap-6 hover:-translate-y-2 transitions-transform duration-300 group">
         <div className="flex justify-between items-center">
           <FaRegFolder className="text-4xl text-textGreen" />
-          <RxOpenInNewWindow className="text-4xl hover:text-textGreen" />
+          {deployedlink && (
+            <a href={deployedlink} target="_blank">
+              <CgWebsite className={iconStyle} />
+            </a>
+          )}{" "}
+          {releases.length > 0 ? (
+            <a href={releases[0].url} target="_blank">
+              <RxOpenInNewWindow className={iconStyle} />
+            </a>
+          ) : (
+            <RxOpenInNewWindow className={iconStyle} />
+          )}
         </div>
         <div>
           <h2 className="text-xl font-titleFont font-semibold tracking-wide group-hover:text-textGreen">
@@ -49,11 +59,27 @@ const Card = ({ name, description, link }: Props) => {
           </h2>
           <p className="text-sm mt-3">{description}</p>
         </div>
-        <ul className="text-xs md:text-sm text-textLight flex items-center gap-2 justify-between flex-wrap">
-          {keys && keys.length > 0 ? (
-            keys.map((str, index) => <li key={index}>{str}</li>)
+        <ul className="text-xs md:text-sm text-textLight flex items-center gap-2 justify-center flex-wrap">
+          {languages && languages.length > 0 ? (
+            languages.map((language, index) => (
+              <li key={index}>{language.name}</li>
+            ))
           ) : (
             <p>No languages defined</p>
+          )}
+        </ul>
+        <ul className="text-xs md:text-sm text-textLight flex items-center gap-2 justify-normal flex-wrap">
+          {repositoryTopics && repositoryTopics.length > 0 ? (
+            repositoryTopics.map((topics, index) => (
+              <li
+                className="rounded-xl bg-textLight p-2 text-textDark"
+                key={index}
+              >
+                {topics.topic.name}
+              </li>
+            ))
+          ) : (
+            <p>No tags defined</p>
           )}
         </ul>
       </div>
