@@ -34,7 +34,7 @@ const Projects = () => {
     const fetchData = async () => {
       const graphqlWithAuth = graphql.defaults({
         headers: {
-          authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`,
+          authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_ACCESS_TOKEN}`,
         },
       });
       const query = `
