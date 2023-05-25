@@ -80,14 +80,14 @@ const Projectsx = ({
             >
               <TbBrandGithub />
             </a>
-            {website &&(
-            <a
-              className="hover:text-textGreen duration-300"
-              href={website == null ? "#" : website}
-              target="_blank"
-            >
-              <RxOpenInNewWindow />
-            </a>
+            {website && (
+              <a
+                className="hover:text-textGreen duration-300"
+                href={website == null ? "#" : website}
+                target="_blank"
+              >
+                <RxOpenInNewWindow />
+              </a>
             )}
           </div>
         </div>
