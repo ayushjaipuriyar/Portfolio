@@ -3,6 +3,11 @@ import SectionTitle from "./SectionTitle";
 import { graphql, GraphQlQueryResponseData } from "@octokit/graphql";
 import Projectsx from "./Projectsx";
 
+interface RepositoryTags {
+  topic: {
+    name: string;
+  };
+}
 interface RepositoryLanguage {
   name: string;
 }
@@ -14,7 +19,7 @@ interface UserPinnedItem {
       nodes: RepositoryLanguage[];
     };
     repositoryTopics: {
-      nodes: RepositoryLanguage[];
+      nodes: RepositoryTags[];
     };
     url: string;
     homepageUrl: string | null;

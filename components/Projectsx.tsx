@@ -29,8 +29,6 @@ const Projectsx = ({
   tags,
   index,
 }: Props) => {
-  console.log(index);
-
   let rev = "";
   if (index % 2 == 0) {
     rev = "flex flex-col xl:flex-row-reverse gap-6";
