@@ -18,12 +18,13 @@ const Footer = ({ text }: Props) => {
   };
   return (
     <div
-      className={`${text === "nav" ? "gap-6 " : "hidden"
-        } flex md:inline-flex xl:hidden items-center justify-center py-6 w-full gap-4`}
+      className={`${
+        text === "nav" ? "gap-6 " : "hidden"
+      } flex md:inline-flex xl:hidden items-center justify-center py-6 w-full gap-4`}
     >
       {icons(<BsGithub />, "https://github.com/ayushjaipuriyar")}
-      {icons(<BsLinkedin />, "https://github.com/ayushjaipuriyar")}
-      {icons(<SiLeetcode />, "https://github.com/ayushjaipuriyar")}
+      {icons(<BsLinkedin />, "https://www.linkedin.com/in/ayushjaipuriyar/")}
+      {icons(<SiLeetcode />, "https://leetcode.com/ayushj02/")}
     </div>
   );
 };
