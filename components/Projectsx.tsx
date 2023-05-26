@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
+import Image, { ImageProps } from "next/image";
 import { RxOpenInNewWindow } from "react-icons/rx";
 import { TbBrandGithub } from "react-icons/tb";
 import { logo } from "@/public/assets";
+import lqip from "lqip-modern";
+import { GetStaticProps } from "next";
 interface RepositoryLanguage {
   name: string;
 }
@@ -18,9 +20,9 @@ interface Props {
   languages: RepositoryLanguage[];
   tags: topicP[];
   website: string | null;
-  imgbool: boolean;
   index: any;
 }
+
 const Projectsx = ({
   name,
   description,
@@ -28,7 +30,6 @@ const Projectsx = ({
   languages,
   website,
   tags,
-  imgbool,
   index,
 }: Props) => {
   const [imgUrl, setimgUrl] = useState<string>("");
@@ -68,10 +69,12 @@ const Projectsx = ({
           <div className="w-full flex flex-col items-center justify-between gap-28 mt-10">
             {imgUrl != "" ? (
               <Image
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain rounded-md"
                 src={imgUrl}
-                height="100"
-                width="100"
+                style={{ objectFit: "contain" }}
+                height={100}
+                width={100}
+                quality={100}
                 alt={`${name} image`}
               />
             ) : (

@@ -23,8 +23,6 @@ interface UserPinnedItem {
     };
     url: string;
     homepageUrl: string | null;
-    openGraphImageUrl: string | null;
-    usesCustomOpenGraphImage: boolean;
   };
 }
 
@@ -67,8 +65,6 @@ const Projects = () => {
                     }
                   }
                   homepageUrl
-                  openGraphImageUrl
-                  usesCustomOpenGraphImage
                 }
               } 
            }
@@ -105,7 +101,6 @@ const Projects = () => {
               website={item.node.homepageUrl}
               languages={item.node.languages.nodes}
               tags={item.node.repositoryTopics.nodes}
-              imgbool={item.node.usesCustomOpenGraphImage}
               index={index}
             />
           ))}
