@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Image, { ImageProps } from "next/image";
+import Image from "next/image";
 import { RxOpenInNewWindow } from "react-icons/rx";
 import { TbBrandGithub } from "react-icons/tb";
-import { logo } from "@/public/assets";
-import lqip from "lqip-modern";
-import { GetStaticProps } from "next";
+// import { logo } from "@/public/assets";
 interface RepositoryLanguage {
   name: string;
 }
