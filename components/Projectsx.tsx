@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { RxOpenInNewWindow } from "react-icons/rx";
 import { TbBrandGithub } from "react-icons/tb";
@@ -18,6 +18,7 @@ interface Props {
   languages: RepositoryLanguage[];
   tags: topicP[];
   website: string | null;
+  imgbool: boolean;
   index: any;
 }
 const Projectsx = ({
@@ -27,14 +28,35 @@ const Projectsx = ({
   languages,
   website,
   tags,
+  imgbool,
   index,
 }: Props) => {
+  const [imgUrl, setimgUrl] = useState<string>("");
   let rev = "";
   if (index % 2 == 0) {
     rev = "flex flex-col xl:flex-row-reverse gap-6";
   } else {
     rev = "flex flex-col xl:flex-row gap-6";
   }
+  const tempImgUrl = `https://raw.githubusercontent.com/ayushjaipuriyar/${name}/main/ss1.png`;
+  useEffect(() => {
+    const checkImg = async () => {
+      const res = await fetch(tempImgUrl);
+      // The return value is *not* serialized
+      // You can return Date, Map, Set, etc.
+
+      // Recommendation: handle errors
+      setimgUrl(tempImgUrl);
+      if (!res.ok) {
+        console.log(`Sorry no image was loaded for the project ${name}`);
+        // Thcois will activate the closest `error.js` Error Boundary
+      } else {
+        setimgUrl(tempImgUrl);
+      }
+    };
+    checkImg();
+  });
+
   return (
     <div className="w-full flex flex-col items-Center justify-center gap-28 mt-10">
       <div className={rev}>
@@ -43,7 +65,19 @@ const Projectsx = ({
           target="_blank"
           className="w-full xl:w-1/2 h-auto relative group"
         >
-          <div className="w-full flex flex-col items-center justify-between gap-28 mt-10"></div>
+          <div className="w-full flex flex-col items-center justify-between gap-28 mt-10">
+            {imgUrl != "" ? (
+              <Image
+                className="w-full h-full object-contain"
+                src={imgUrl}
+                height="100"
+                width="100"
+                alt={`${name} image`}
+              />
+            ) : (
+              <span />
+            )}
+          </div>
         </a>
         <div className="w-full xl:w-1/2 flex flex-col gap-6 lg:justify-between items-end text-right xl:-ml-16 z-10">
           <p className="font-titleFont text-textGreen text-sm tracking-wide">

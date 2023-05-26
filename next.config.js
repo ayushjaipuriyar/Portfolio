@@ -9,8 +9,12 @@ module.exports = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "www.google.com",
+        hostname: "repository-images.githubusercontent.com",
         port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "raw.githubusercontent.com",
       },
     ],
   },

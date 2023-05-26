@@ -23,6 +23,8 @@ interface UserPinnedItem {
     };
     url: string;
     homepageUrl: string | null;
+    openGraphImageUrl: string | null;
+    usesCustomOpenGraphImage: boolean;
   };
 }
 
@@ -43,35 +45,37 @@ const Projects = () => {
         },
       });
       const query = `
-        {
-          user(login: "ayushjaipuriyar") {
-            pinnedItems(first: 10) {
-              edges {
-                node {
-                  ... on Repository {
-                    name
-                    description
-                    languages(first: 20) {
-                      nodes {
+       {
+        user(login: "ayushjaipuriyar") {
+          pinnedItems(first: 10) {
+            edges {
+              node {
+                ... on Repository {
+                  name
+                  description
+                  languages(first: 20) {
+                    nodes {
+                      name
+                    }
+                  }
+                  url
+                  repositoryTopics(first: 10) {
+                    nodes {
+                      topic {
                         name
                       }
                     }
-                    url
-                    repositoryTopics(first: 10) {
-                      nodes {
-                        topic {
-                          name
-                        }
-                      }
-                    }
-                    homepageUrl
                   }
+                  homepageUrl
+                  openGraphImageUrl
+                  usesCustomOpenGraphImage
                 }
-              }
-            }
-          }
-        }
-      `;
+              } 
+           }
+         }
+       }
+     }      
+    `;
       try {
         const response = await graphqlWithAuth<GraphQLResponse>(query);
         const edgesExtracted: UserPinnedItem[] =
@@ -83,6 +87,7 @@ const Projects = () => {
     };
     fetchData();
   }, []);
+  console.log(data);
   return (
     <section
       id="products"
@@ -100,6 +105,7 @@ const Projects = () => {
               website={item.node.homepageUrl}
               languages={item.node.languages.nodes}
               tags={item.node.repositoryTopics.nodes}
+              imgbool={item.node.usesCustomOpenGraphImage}
               index={index}
             />
           ))}
