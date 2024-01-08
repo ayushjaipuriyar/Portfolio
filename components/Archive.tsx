@@ -51,10 +51,10 @@ const Archive = () => {
           authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_ACCESS_TOKEN}`,
         },
       });
-      const query = `    
+      const query = `
       {
           user(login: "ayushjaipuriyar") {
-            repositories(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
+            repositories(first: 100, privacy:PUBLIC, orderBy: {field: UPDATED_AT, direction: DESC}) {
               nodes {
                 description
                 languages(first: 10) {
