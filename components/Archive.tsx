@@ -54,7 +54,7 @@ const Archive = () => {
       const query = `
       {
           user(login: "ayushjaipuriyar") {
-            repositories(first: 100, privacy:PUBLIC, orderBy: {field: UPDATED_AT, direction: DESC}) {
+            repositories(first: 100, privacy:PUBLIC,isArchived: false, orderBy: {field: UPDATED_AT, direction: DESC}) {
               nodes {
                 description
                 languages(first: 10) {
