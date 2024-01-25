@@ -14,7 +14,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       throw new Error(`unexpected response ${response.statusText}`);
 
     res.setHeader("Content-Type", "application/pdf");
-    res.setHeader("Content-Disposition", "inline; filename=dummy.pdf");
+    res.setHeader("Content-Disposition", "inline; filename=Ayush_Jaipuriyar_Resume.pdf");
     // await pipeline(response.body, res);
     // return response.body, res;
     // response.body.pipe(res);
